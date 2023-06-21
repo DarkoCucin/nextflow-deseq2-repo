@@ -1,0 +1,169 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com//Users/darkocucin/Desktop/Deseq2nextflow/modules/modules/nf-core/deseq2/differential/master/nextflow_schema.json",
+    "title": "/Users/darkocucin/Desktop/Deseq2nextflow/modules/modules/nf-core/deseq2/differential pipeline parameters",
+    "description": "",
+    "type": "object",
+    "definitions": {
+        "input_output_options": {
+            "title": "Input/output options",
+            "type": "object",
+            "fa_icon": "fas fa-terminal",
+            "description": "Define where the pipeline should find input data and save output data.",
+            "properties": {}
+        },
+        "reference_genome_options": {
+            "title": "Reference genome options",
+            "type": "object",
+            "fa_icon": "fas fa-dna",
+            "description": "Reference genome related files and options required for the workflow.",
+            "properties": {}
+        },
+        "institutional_config_options": {
+            "title": "Institutional config options",
+            "type": "object",
+            "fa_icon": "fas fa-university",
+            "description": "Parameters used to describe centralised config profiles. These should not be edited.",
+            "help_text": "The centralised nf-core configuration profiles use a handful of pipeline parameters to describe themselves. This information is then printed to the Nextflow log when you run a pipeline. You should not need to change these values when you run a pipeline.",
+            "properties": {}
+        },
+        "max_job_request_options": {
+            "title": "Max job request options",
+            "type": "object",
+            "fa_icon": "fab fa-acquisitions-incorporated",
+            "description": "Set the top limit for requested resources for any single job.",
+            "help_text": "If you are running on a smaller system, a pipeline step requesting more resources than are available may cause the Nextflow to stop the run with an error. These options allow you to cap the maximum resources requested by any single job so that the pipeline will run on your system.\n\nNote that you can not _increase_ the resources requested by any job using these options. For that you will need your own configuration file. See [the nf-core website](https://nf-co.re/usage/configuration) for details.",
+            "properties": {}
+        },
+        "generic_options": {
+            "title": "Generic options",
+            "type": "object",
+            "fa_icon": "fas fa-file-import",
+            "description": "Less common options for the pipeline, typically set in a config file.",
+            "help_text": "These options are common to all nf-core pipelines and allow you to customise some of the core preferences for how the pipeline runs.\n\nTypically these options would be set in a Nextflow config file loaded for all pipeline runs, such as `~/.nextflow/config`.",
+            "properties": {}
+        }
+    },
+    "allOf": [
+        {
+            "$ref": "#/definitions/input_output_options"
+        },
+        {
+            "$ref": "#/definitions/reference_genome_options"
+        },
+        {
+            "$ref": "#/definitions/institutional_config_options"
+        },
+        {
+            "$ref": "#/definitions/max_job_request_options"
+        },
+        {
+            "$ref": "#/definitions/generic_options"
+        }
+    ],
+    "properties": {
+        "sizefactors_from_controls": {
+            "type": "string"
+        },
+        "gene_id_col": {
+            "type": "string",
+            "default": "gene_id"
+        },
+        "sample_id_col": {
+            "type": "string",
+            "default": "experiment_accession"
+        },
+        "subset_to_contrast_samples": {
+            "type": "string"
+        },
+        "exclude_samples_col": {
+            "type": "string"
+        },
+        "exclude_samples_values": {
+            "type": "string"
+        },
+        "test": {
+            "type": "string",
+            "default": "Wald"
+        },
+        "fit_type": {
+            "type": "string",
+            "default": "parametric"
+        },
+        "sf_type": {
+            "type": "string",
+            "default": "ratio"
+        },
+        "min_replicates_for_replace": {
+            "type": "integer",
+            "default": 7
+        },
+        "use_t": {
+            "type": "string"
+        },
+        "lfc_threshold": {
+            "type": "integer",
+            "default": 0
+        },
+        "alt_hypothesis": {
+            "type": "string",
+            "default": "greaterAbs"
+        },
+        "independent_filtering": {
+            "type": "string",
+            "default": "true"
+        },
+        "p_adjust_method": {
+            "type": "string",
+            "default": "BH"
+        },
+        "alpha": {
+            "type": "number",
+            "default": 0.1
+        },
+        "minmu": {
+            "type": "number",
+            "default": 0.5
+        },
+        "shrink_lfc": {
+            "type": "string",
+            "default": "true"
+        },
+        "cores": {
+            "type": "integer",
+            "default": 1
+        },
+        "vs_method": {
+            "type": "string",
+            "default": "vst"
+        },
+        "vs_blind": {
+            "type": "string",
+            "default": "true"
+        },
+        "vst_nsub": {
+            "type": "integer",
+            "default": 1000
+        },
+        "samplesheet": {
+            "type": "string",
+            "default": " "
+        },
+        "counts": {
+            "type": "string",
+            "default": " "
+        },
+        "control_genes_file": {
+            "type": "string",
+            "default": " "
+        },
+        "contast_file": {
+            "type": "string",
+            "default": " "
+        },
+        "outdir": {
+            "type": "string",
+            "default": "/Users/darkocucin/Desktop/Deseq2nextflow/modules/modules/nf-core/deseq2/differential/output_gen"
+        }
+    }
+}
