@@ -1,5 +1,5 @@
 app_content:
-  code_package: 6491d6caee36ac0be26968c2
+  code_package: 64934cc268697e6f54e68f5a
   entrypoint: main.nf
 class: nextflow
 cwlVersion: None
@@ -83,6 +83,8 @@ inputs:
   id: sizefactors_from_controls
   inputBinding:
     prefix: --sizefactors_from_controls
+    valueFrom: "${\n    if (inputs.sizefactors_from_controls)\n    {\n        return\
+      \ \"T\";\n    }\n    else{\n        return \"F\";\n    }\n}"
   label: Sizefactors from controls
   sbg:toolDefaultValue: false
   type:
@@ -115,6 +117,8 @@ inputs:
   id: subset_to_contrast_samples
   inputBinding:
     prefix: --subset_to_contrast_samples
+    valueFrom: "${\n    if (inputs.subset_to_contrast_samples)\n    {\n        return\
+      \ \"T\";\n    }\n    else{\n        return \"F\";\n    }\n}"
   label: Subset to contrast samples
   sbg:toolDefaultValue: false
   type:
@@ -198,6 +202,8 @@ inputs:
   id: use_t
   inputBinding:
     prefix: --use_t
+    valueFrom: "${\n    if (inputs.use_t)\n    {\n        return \"T\";\n    }\n \
+      \   else{\n        return \"F\";\n    }\n}"
   label: Use nbinomWaldTest
   sbg:toolDefaultValue: false
   type:
@@ -260,6 +266,8 @@ inputs:
   id: independent_filtering
   inputBinding:
     prefix: --independent_filtering
+    valueFrom: "${\n    if (inputs.independent_filtering)\n    {\n        return \"\
+      T\";\n    }\n    else{\n        return \"F\";\n    }\n}"
   label: Independent filtering
   sbg:toolDefaultValue: true
   type:
@@ -318,6 +326,8 @@ inputs:
   id: shrink_lfc
   inputBinding:
     prefix: --shrink_lfc
+    valueFrom: "${\n    if (inputs.shrink_lfc)\n    {\n        return \"T\";\n   \
+      \ }\n    else{\n        return \"F\";\n    }\n}"
   label: Estimated shrunken LFC
   sbg:toolDefaultValue: true
   type:
@@ -367,6 +377,8 @@ inputs:
   id: vs_blind
   inputBinding:
     prefix: --vs_blind
+    valueFrom: "${\n    if (inputs.vs_blind)\n    {\n        return \"T\";\n    }\n\
+      \    else{\n        return \"F\";\n    }\n}"
   label: Blind transformation to experimental design
   sbg:toolDefaultValue: true
   type:
@@ -439,3 +451,4 @@ requirements:
   - $(inputs.in_counts)
   - $(inputs.in_control_genes)
   - $(inputs.in_contrast)
+  
